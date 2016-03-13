@@ -18,7 +18,7 @@ meansteps<- group_by (activity, date)
 
 ###2. What is mean total number of steps taken per day?
 
-```{r}
+```{r hist meantotalsteps}
 totalstepsday <- summarize (meansteps, tsd = sum(steps, na.rm = TRUE))
 hist (totalstepsday$tsd, xlab= "Steps", ylab = "Number of days", main = "Number of steps/day")
 meants <- filter (totalstepsday, tsd !=0) # removing days with no measures of step numbers
@@ -32,7 +32,7 @@ Median total steps taken per day = `r mdstp`
 
 ###3. What is the average daily activity pattern?
 
-```{r}
+```{r ts average steps}
 act2 <- activity [!is.na (activity$steps), ]
 act3 <- group_by(act2, interval)
 act4<- summarize(act3, mean (steps)) 
@@ -62,7 +62,7 @@ idx <- which(is.na (activity2$steps))
 activity2$steps[idx] <- msteps
 ```
 
-```{r}
+```{r meantotalsteps completed}
 meansteps2<- group_by (activity2, date)
 totalstepsday2 <- summarize (meansteps2, tsd= sum(steps))
 hist (totalstepsday2$tsd, xlab= "Steps", ylab = "Number of days", main = "Number of steps/day")
@@ -80,7 +80,7 @@ These values are very similar to the estimates from the first part of the assign
 
 ###5. Are there differences in activity patterns between weekdays and weekends?
 
-```{r}
+```{r dif weekend weekday}
 dias<- strptime (activity$date, "%Y-%m-%d")
 semanas <- weekdays (dias)
 weekend <- which (semanas == "sábado" | semanas == "domingo" ) 

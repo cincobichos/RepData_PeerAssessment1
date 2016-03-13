@@ -40,7 +40,7 @@ totalstepsday <- summarize (meansteps, tsd = sum(steps, na.rm = TRUE))
 hist (totalstepsday$tsd, xlab= "Steps", ylab = "Number of days", main = "Number of steps/day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)
+![](PA1_template_files/figure-html/hist meantotalsteps-1.png)
 
 ```r
 meants <- filter (totalstepsday, tsd !=0) # removing days with no measures of step numbers
@@ -62,7 +62,7 @@ act4<- summarize(act3, mean (steps))
 plot (act4, type="l", ylab= "Average number of steps", xlab= "5-min interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)
+![](PA1_template_files/figure-html/ts average steps-1.png)
 
 ```r
 names (act4) <- (c("Int", "meansteps"))
@@ -106,7 +106,7 @@ totalstepsday2 <- summarize (meansteps2, tsd= sum(steps))
 hist (totalstepsday2$tsd, xlab= "Steps", ylab = "Number of days", main = "Number of steps/day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)
+![](PA1_template_files/figure-html/meantotalsteps completed-1.png)
 
 ```r
 mnst2<- mean (totalstepsday2$tsd)
@@ -143,5 +143,5 @@ plot (wd3, type="l", ylab= "Number of steps", xlab= "Interval", main = "Weekdays
 plot (we3, type="l", ylab= "Number of steps", xlab= "Interval", main = "Weekends", cex.main = 1)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
+![](PA1_template_files/figure-html/dif weekend weekday-1.png)
 
